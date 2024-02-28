@@ -11,3 +11,11 @@ X
 (src/main/java/org/example/maps/Demo.java,7\3\733b28f5e8f8fa1824dfda8edf72b76c9fd9f20a
 [
 +src/main/java/org/example/Lambdas/Demo.java,6\8\680197c0c712f709f2398e8142610130cdfe1981
+g
+7src/main/java/org/example/StreamAPI/StreamExamples.java,6\5\654b5acf1200d2c74f08f5fa9aac4d793481ce0f
+h
+8src/main/java/org/example/StreamAPI/StringGenerator.java,1\7\178aef1ebc6a173899b59b7f2933f5da1417c175
+_
+/src/main/java/org/example/FluentAPI/Widget.java,4\4\44753d457c0c1cd9f7d1e1de5faa02c4827029e4
+e
+5src/main/java/org/example/FluentAPI/WidgetDriver.java,2\7\279b2c6a06863325407b7b766cb43affcb06c7dd
