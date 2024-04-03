@@ -9,12 +9,14 @@ public class SinglyLinkedList<E> implements LinkedList<E>{
     private Node tail;
 
 
+    // O(1)
     @Override
     public void addFirst(E element) {
         Node node = new Node(element, head); // Step 1 and 2
         // corner case for new list
         if (head == null){ // list is empty
-            tail = node;
+            head = node;
+            tail = head;
         }
         head = node; // Step 3
     }
@@ -31,6 +33,7 @@ public class SinglyLinkedList<E> implements LinkedList<E>{
         }
     }
 
+    // O(1)
     @Override
     public E pollFirst() {
         E element;
@@ -54,6 +57,7 @@ public class SinglyLinkedList<E> implements LinkedList<E>{
         return element;
     }
 
+    // O(n)
     @Override
     public E pollLast() {
         E element;
@@ -79,26 +83,68 @@ public class SinglyLinkedList<E> implements LinkedList<E>{
         return element;
     }
 
+    // O(1)
     @Override
     public E peekFirst() {
-        return null;
+        return head.element;
     }
 
+    // O(1)
     @Override
     public E peekLast() {
-        return null;
+        return tail.element;
     }
 
     @Override
     public void clear() {
+        Node current = head;
+        while (current.next != null) { // O(n)
+            Node next = current.next;
+            current.next = null;
+            current = next;
+        }
+
+        head = null;
+        tail = null;
 
     }
 
     @Override
     public boolean contains(E element) {
-        return false;
+
+        boolean contains = false;
+        Node current = head;
+        while (current != null) {
+            Node next = current.next;
+            if (current.element == element) {
+                contains = true;
+                break;
+            }
+            current = next;
+        }
+        return contains;
     }
 
+    // O(n)
+    public int size() {
+
+        int counter = 0;
+        if (head != null) {
+
+            if (head == tail) {
+                counter = 1;
+            } else {
+                Node current = head;
+                while (current != null) {
+                    counter++;
+                    current = current.next;
+                }
+            }
+        }
+        return counter;
+    }
+
+    // O(n)
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("[");
@@ -114,6 +160,7 @@ public class SinglyLinkedList<E> implements LinkedList<E>{
         builder.append("]");
         return builder.toString();
     }
+    // O(1) - creating a new class
     private class Node {
         Node next;
         E element;
